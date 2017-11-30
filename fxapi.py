@@ -10,9 +10,21 @@ def hello_world():
     return 'Hello World!'
 
 
+@app.route('/hello/')
+# this is a function
+def hello():
+    return 'Type your name after the /home/ to proceed!'
+
+
+
 @app.route('/hello/<name>')
-def hello_again(name):
-    return 'Hello ' + name
+def hello_name(name):
+    return 'Hello ' + name + '. Now type your age in the adress bar after /' + name + '/'
+
+
+@app.route('/hello/<name>/<age>')
+def hello_age(name, age):
+    return 'Hello ' + name + ' i remember when i was ' + age + ' years olds'
 
 if __name__ == '__main__':
     app.run(port= 5005,debug=True)
