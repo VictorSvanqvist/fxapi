@@ -15,3 +15,4 @@ def fxdata():
         jsondata = fxdata.data
 
         return jsondata
+    
