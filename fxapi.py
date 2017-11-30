@@ -1,4 +1,7 @@
-from flask import Flask
+import requests
+from flask import Flask, jsonify
+from fxlib import fxdata
+
 
 app = Flask(__name__)
 
@@ -19,12 +22,26 @@ def hello():
 
 @app.route('/hello/<name>')
 def hello_name(name):
-    return 'Hello ' + name + '. Now type your age in the adress bar after /' + name + '/'
+    return 'Hello ' + name.title() + '. Now type your age in the adress bar after /' + name + '/'
 
 
 @app.route('/hello/<name>/<age>')
 def hello_age(name, age):
-    return 'Hello ' + name + ' i remember when i was ' + age + ' years olds'
+    return 'Hello ' + name.title() + ' i remember when i was ' + age + ' years olds'
+
+@app.route('/bank/<currency>')
+def bank_currency(currency):
+    return jsonify(fxdata())
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(port= 5005,debug=True)
