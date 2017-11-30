@@ -7,13 +7,13 @@ app = Flask(__name__)
 @app.route('/')
 # this is a function
 def hello_world():
-    return 'Hello World!'
+    return 'Hello World! type /hello/ in the adress bar'
 
 
 @app.route('/hello/')
 # this is a function
 def hello():
-    return 'Type your name after the /home/ to proceed!'
+    return 'Type your name after the /hello/ to proceed!'
 
 
 
